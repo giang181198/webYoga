@@ -1,0 +1,234 @@
+﻿@using WebYoga.Model;
+@{
+    List<tblSanPham> sanPhamMoi = ViewBag.SanPhamMoi;
+    List<tblSanPham> sanPhamBanChay = ViewBag.SanPhamBanChay;
+}
+
+<div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4">
+        <ul class="" id="bxslider-home4">
+            <li>
+                <img src="~/Content/ustora/img/banner1.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        Sản <span class="primary">Phẩm </span>
+                    </h2>
+                    <h4 class="caption subtitle">Chất lượng cao</h4>
+                    <a class="caption button-radius" href="/Home/SanPham"><span class="icon"></span>Mua ngay</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/ustora/img/h4-slide2.png" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        Nhiều  <span class="primary">chương trình ưu đãi </span>
+                    </h2>
+                    <h4 class="caption subtitle">Khách hàng thân thiết</h4>
+                    <a class="caption button-radius" href="/Home/SanPham"><span class="icon"></span>Mua ngay</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/ustora/img/banner3.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        Thiết kế <span class="primary">ấn tượng </span>
+                    </h2>
+                    <h4 class="caption subtitle">Nhỏ gọn - tinh tế</h4>
+                    <a class="caption button-radius" href="/Home/SanPham"><span class="icon"></span>Mua ngay</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/ustora/img/h4-slide4.png" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        Chất lượng <span class="primary">Tuyệt đối </span>
+                    </h2>
+                    <h4 class="caption subtitle">Sản phẩm chính hãng</h4>
+                    <a class="caption button-radius" href="/Home/SanPham"><span class="icon"></span>Mua ngay</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- ./Slider -->
+</div> <!-- End slider area -->
+
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo1">
+                    <i class="fa fa-refresh"></i>
+                    <p>Trả hàng 7 ngày</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo2">
+                    <i class="fa fa-truck"></i>
+                    <p>Miễn phí vận chuyển</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo3">
+                    <i class="fa fa-lock"></i>
+                    <p>Thanh toán</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo4">
+                    <i class="fa fa-gift"></i>
+                    <p>Quà tặng hấp dẫn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End promo area -->
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <h2 class="section-title">Sản phẩm mới</h2>
+                    <div class="product-carousel">
+                        @foreach (var item in sanPhamMoi)
+                        {
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="~/Content/UploadFiles/@item.HinhAnh" style="width:250px; height:280px;" alt="">
+                                    <div class="product-hover">
+                                        <a href="@Url.Action("AddItem","Cart",new { IdSanPham=item.IdSanPham, SoLuong = 1 })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</a>
+                                        <a href="@Url.Action("Details","Home",new { Id=item.IdSanPham })" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                    </div>
+                                </div>
+                                <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0") VND</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0") VND</del>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <br /><br /><br /><br /><br /><br />
+                    <h2 class="section-title">Sản phẩm bán chạy</h2>
+                    <div class="product-carousel">
+                        @foreach (var item in sanPhamBanChay)
+                        {
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="~/Content/UploadFiles/@item.HinhAnh" style="width:250px; height:280px;" alt="">
+                                    <div class="product-hover">
+                                        <a href="@Url.Action("AddItem","Cart",new { IdSanPham=item.IdSanPham, SoLuong = 1 })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</a>
+                                        <a href="@Url.Action("Details","Home",new { id=item.IdSanPham})" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                    </div>
+                                </div>
+                                <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0") VND</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0") VND</del>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->
+
+<div class="brands-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="brand-wrapper">
+                    <div class="brand-list">
+
+                        <img src="~/Content/ustora/img/brand3.png" alt="apple">
+                        <img src="~/Content/ustora/img/brand4.png" alt="samsung">
+                        <img src="~/Content/ustora/img/remax.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End brands area -->
+
+<div class="product-widget-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Bán chạy</h2>
+                    <a href="" class="wid-view-more">Xem thêm</a>
+                    @foreach (var item in sanPhamBanChay)
+                    {
+                        <div class="single-wid-product">
+                            <a href="@Url.Action("Details","Home",new { id=item.IdSanPham})"><img src="~/Content/UploadFiles/@item.HinhAnh" alt="" class="product-thumb"></a>
+                            <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Sản phẩm mới</h2>
+                    <a href="#" class="wid-view-more">Xem thêm</a>
+                    @foreach (var item in sanPhamMoi)
+                    {
+                        <div class="single-wid-product">
+                            <a href="@Url.Action("Details","Home",new { id=item.IdSanPham})"><img src="~/Content/UploadFiles/@item.HinhAnh" alt="" class="product-thumb"></a>
+                            <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Sản phẩm nổi bật</h2>
+                    <a href="#" class="wid-view-more">Xem thêm</a>
+                    @foreach (var item in sanPhamBanChay)
+                    {
+                        <div class="single-wid-product">
+                            <a href="@Url.Action("Details","Home",new { id=item.IdSanPham})"><img src="~/Content/UploadFiles/@item.HinhAnh" alt="" class="product-thumb"></a>
+                            <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End product widget area -->

@@ -1,0 +1,76 @@
+﻿@model List<WebYoga.Model.tblKhachHang>
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    ViewBag.header = " Danh mục khách hàng";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center ">
+                <h4 class="card-title">Khách hàng</h4>
+
+            </div>
+            <a class=" btn btn btn-secondary btn-round ml-auto" href="/Administrator/tblKhachHang/Create"> <span class="btn-label"><i class="fa fa-plus"></i></span>     Thêm mới  </a>
+
+        </div>
+        <div class="main-content container-fluid">
+            <div class="table-responsive" id="tb">
+                <table class="table table-bordered mb-0 table-striped">
+
+
+                    <thead class=" table table-secondary ">
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ tên</th>
+                            <th>Địa chỉ</th>
+                            <th>Email</th>
+                            <th>Điện thoại</th>
+                            <th>UserName</th>
+                            <th>Password</th>
+                            <th>Avatar</th>
+
+                            <th>Chức năng</th>
+
+
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>Id @item.IdKhachHang</td>
+                                <td>@item.TenKhachHang</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.Email</td>
+                                <td>@item.DienThoai</td>
+                                <td>@item.UserName</td>
+                                <td>@item.PassWords</td>
+                                <td>@item.Avatar</td>
+
+
+                                <td style="width:150px;">
+
+                                    <a href="/Administrator/tblKhachHang/Edit/@item.IdKhachHang">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="edit"></i>
+                                    </a>
+                                    <a href="/Administrator/tblKhachHang/Delete/@item.IdKhachHang" onclick="return confirm('Bạn có chắc chắn muốn xóa ?');">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="trash-2"></i>
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

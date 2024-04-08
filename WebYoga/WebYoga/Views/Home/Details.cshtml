@@ -1,0 +1,141 @@
+﻿@using WebYoga.Model;
+@{
+    List<tblSanPham> sanPhamMoi = ViewBag.SanPhamMoi;
+    List<tblSanPham> sanPhamBanChay = ViewBag.SanPhamBanChay;
+}
+@model WebYoga.Model.tblSanPham
+<br />
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Chi tiết sản phẩm</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">Tìm kiếm sản phẩm</h2>
+                    <form action="">
+                        <input type="text" placeholder="Sản phẩm ...">
+                        <input type="submit" value="Tìm kiếm">
+                    </form>
+                </div>
+
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">Sản phẩm mới</h2>
+                    @foreach (var item in sanPhamMoi)
+                    {
+                        <div class="thubmnail-recent">
+                            <img src="~/Content/UploadFiles/@item.HinhAnh" class="recent-thumb" alt="">
+                            <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+                            <div class="product-sidebar-price">
+                                <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="product-content-right">
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="product-images">
+                                <div class="product-main-img">
+                                    <img src="~/Content/UploadFiles/@Model.HinhAnh" alt="">
+                                </div>
+
+                                <div class="product-gallery">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product-inner">
+                                <h2 class="product-name">@Model.TenSanPham</h2>
+                                <div class="product-inner-price">
+                                    <ins>@Model.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@Model.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                                </div>
+
+                                @*<form action="" class="cart">
+                                        <div class="quantity">
+                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                        </div>
+                                        <a class="btn btn-info" href="@Url.Action("AddItem","Cart",new { IdSanPham=Model.IdSanPham, SoLuong = 1 })">Thêm giỏ hàng</a>
+                                    </form>*@
+                                <form action="/Cart/AddItem" method="post" class="cart">
+                                    <div class="quantity">
+                                        <input name="IdSanPham" value="@Model.IdSanPham" />
+                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="SoLuong" min="1" step="1">
+                                    </div>
+                                    <input class="btn btn-info" type="submit" value="Thêm giỏ hàng" />
+                                </form>
+
+                                <div class="product-inner-category">
+                                    <p>Loại: <a href="">@Model.tblTheLoai.TenTheLoai</a>. </p>
+                                </div>
+
+                                <div role="tabpanel">
+                                    <ul class="product-tab" role="tablist">
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mô tả sản phẩm</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="home">
+
+                                            <p>@Model.MoTa</p>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="profile">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="related-products-wrapper">
+                        <h2 class="related-products-title">Sản phẩm bán chạy</h2>
+                        <div class="related-products-carousel">
+                            @foreach (var item in sanPhamBanChay)
+                            {
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        <img src="~/Content/UploadFiles/@item.HinhAnh" style="width:250px; height:280px;" alt="">
+                                        <div class="product-hover">
+                                            <a href="@Url.Action("AddItem","Cart",new { IdSanPham=item.IdSanPham, SoLuong = 1 })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</a>
+                                            <a href="@Url.Action("Details","Home",new { id=item.IdSanPham})" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                    <h2><a href="@Url.Action("Details","Home",new { id=item.IdSanPham})">@item.TenSanPham</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>@item.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</ins> <del>@item.GiaBan.GetValueOrDefault(0).ToString("N0")</del>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

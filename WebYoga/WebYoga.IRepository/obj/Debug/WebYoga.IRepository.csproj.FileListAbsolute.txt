@@ -1,0 +1,12 @@
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\WebYoga.IRepository.dll
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\WebYoga.IRepository.pdb
+D:\Giang\WebYoga\WebYoga.IRepository\obj\Debug\WebYoga.IRepository.csproj.AssemblyReference.cache
+D:\Giang\WebYoga\WebYoga.IRepository\obj\Debug\WebYoga.IRepository.csproj.CoreCompileInputs.cache
+D:\Giang\WebYoga\WebYoga.IRepository\obj\Debug\WebYoga.IRepository.dll
+D:\Giang\WebYoga\WebYoga.IRepository\obj\Debug\WebYoga.IRepository.pdb
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\WebYoga.IRepository.dll.config
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\EntityFramework.dll
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\EntityFramework.xml
+D:\Giang\WebYoga\WebYoga.IRepository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Giang\WebYoga\WebYoga.IRepository\obj\Debug\WebYoga..9DE1A946.Up2Date

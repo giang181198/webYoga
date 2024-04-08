@@ -1,0 +1,77 @@
+﻿
+@model List<WebYoga.Models.Cart>
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        @if (Model.Count > 0)
+        {
+            <table cellspacing="0" class="shop_table cart">
+                <thead>
+                    <tr>
+                        <td>Mã Sản phẩm</td>
+                        <td>Tên Sản phẩm</td>
+                        <td>Hình ảnh</td>
+                        <td>Số lượng </td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SanPham.IdSanPham</td>
+                            <td>@item.SanPham.TenSanPham</td>
+                            <td><img src="~/Content/UploadFiles/@item.SanPham.HinhAnh" style="width:3em; height:4em; " /></td>
+                            <td><input type="text" class="txtsoluong" data-id="@item.SanPham.IdSanPham" value="@item.SoLuong" /> </td>
+                            <td>@item.SanPham.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.SanPham.GiaKhuyenMai.GetValueOrDefault(0) * item.SoLuong).ToString("N0"))</td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+
+        }
+        <div class="col-md-6">
+            <div class="section group">
+                @using (Html.BeginForm("ThanhToan", "Cart", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label>Người nhận</label>
+                        <input name="TenNguoiNhan" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input name="SoDienThoaiNhan" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input name="DiaChiNhan" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="EmailNhan" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú</label>
+                        <input name="Note" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn ">Thanh toán</button>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+

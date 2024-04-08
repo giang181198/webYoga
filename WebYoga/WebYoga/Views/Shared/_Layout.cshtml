@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--
+    ustora by freshdesignweb.com
+    Twitter: https://twitter.com/freshdesignweb
+    URL: https://www.freshdesignweb.com/ustora/
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website Sản phẩm Yoga</title>
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/Content/ustora/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/ustora/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/ustora/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/ustora/style.css">
+    <link rel="stylesheet" href="~/Content/ustora/css/responsive.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        /* Style The Dropdown Button */
+        .dropbtn {
+            background-color: #fbfbfb;
+            color: #6e6a6a;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                /* Change color of dropdown links on hover */
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #5a88ca;
+        }
+    </style>
+    <script src="~/Content/jquery.3.2.1.min.js"></script>
+    <script src="~/Controllers/CartController.js"></script>
+</head>
+<body>
+
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="/Administrator/Home/Login"><i class="fa fa-android"></i> Quản trị</a></li>
+                            <li><a href="/Cart/Index"><i class="fa fa-caret-up"></i> Giỏ hàng</a></li>
+                            <li><a href="/Cart/Index"><i class="fa fa-area-chart"></i> Thanh toán</a></li>
+                            <li><a href="/Cart/Index"><i class="fa fa-user"></i> Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="header-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="dropdown dropdown-small">
+                                <a class="dropdown-toggle" href="#"><span>Tiền tệ :</span><span class="value">VND </span></a>
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End header area -->
+
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo">
+                        <h1><a href="./"><img src="~/Content/ustora/img/logo.png"></a></h1>
+                    </div>
+                </div>
+
+                @{ Html.RenderAction("HeaderCart", "Cart");}
+            </div>
+        </div>
+    </div> <!-- End site branding area -->
+
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/Home/index">Trang chủ</a></li>
+                        <li><a href="/Home/SanPham">Sản phẩm</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn"><a>Danh mục</a></div>
+                                <div class="dropdown-content">
+                                    <a href="/Home/QuanAo">Quần áo</a>
+                                    <a href="/Home/Giay">Giầy</a>
+                                    <a href="/Home/TuiDung">Túi đựng</a>
+                                    <a href="/Home/Ta">Tạ</a>
+                                    <a href="/Home/DoTap">Đồ tập</a>
+                                    <a href="/Home/Tham">Thảm</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="/Cart/Index">Giỏ hàng</a></li>
+                        <li><a href="/Home/Contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End mainmenu area -->
+
+
+    @RenderBody();
+    <div class="footer-top-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-about-us">
+                        <h2>Sản phẩm<span> Yoga</span></h2>
+                        <p>Website chuyên cung cấp sản phẩm Yoga chất lượng giá tốt phù hợp.</p>
+                        <div class="footer-social">
+                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">DANH MỤC</h2>
+                        <ul>
+                            <li><a href="/Home/QuanAo">Quần áo</a></li>
+                            <li><a href="/Home/Giay">Giầy</a></li>
+                            <li><a href="/Home/TuiDung">Túi đựng</a></li>
+                            <li><a href="/Home/Ta">Tạ</a></li>
+                            <li><a href="/Home/DoTap">Đồ tập</a></li>
+                            <li><a href="/Home/Tham">Thảm</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-newsletter">
+                        <h2 class="footer-wid-title">Đăng ký nhận tin</h2>
+                        <p>Đăng ký nhận thông báo về sản phẩm mới qua Email.</p>
+                        <div class="newsletter-form">
+                            <form action="#">
+                                <input type="email" placeholder="Email">
+                                <input type="submit" value="Đăng ký">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End footer top area -->
+
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                        <p>&copy; 2024 Website Sản phẩm Yoga <a href="http://www.freshdesignweb.com" target="_blank"></a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-card-icon">
+                        <i class="fa fa-cc-discover"></i>
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-paypal"></i>
+                        <i class="fa fa-cc-visa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End footer bottom area -->
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- jQuery sticky menu -->
+    <script src="~/Content/ustora/js/owl.carousel.min.js"></script>
+    <script src="~/Content/ustora/js/jquery.sticky.js"></script>
+
+    <!-- jQuery easing -->
+    <script src="~/Content/ustora/js/jquery.easing.1.3.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="~/Content/ustora/js/main.js"></script>
+
+    <!-- Slider -->
+    <script type="text/javascript" src="~/Content/ustora/js/bxslider.min.js"></script>
+    <script type="text/javascript" src="~/Content/ustora/js/script.slider.js"></script>
+</body>
+</html>

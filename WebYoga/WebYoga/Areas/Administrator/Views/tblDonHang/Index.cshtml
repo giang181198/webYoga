@@ -1,0 +1,84 @@
+﻿@model List<WebYoga.Model.tblDonHang>
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    ViewBag.header = " Danh mục đơn hàng";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center ">
+                <h4 class="card-title">Đơn hàng</h4>
+
+            </div>
+
+
+        </div>
+        <div class="main-content container-fluid">
+            <div class="table-responsive card-body">
+                <table class="table table-bordered mb-0 table-striped" id="table1">
+
+
+                    <thead class=" table table-secondary ">
+                        <tr>
+                            <th>ID</th>
+                            <th>Khách hàng</th>
+                            <th>Tổng tiền</th>
+
+                            <th>Ngày đặt hàng</th>
+                            <th>Note</th>
+                            <th>Trạng thái đơn</th>
+                            <th>Chức năng</th>
+
+
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="/Administrator/tblDonHang/ChiTietDonHang/@item.IdDonHang">Id @item.IdDonHang</a></td>
+                                <td>@item.tblKhachHang.TenKhachHang</td>
+                                <td>@item.TongTien</td>
+
+                                <td>@item.NgayDatHang</td>
+                                <td>@item.Note</td>
+                                <td>@item.TrangThaiDonHang</td>
+
+
+                                <td style="width:150px;">
+                                    <a href="/Administrator/tblDonHang/ChiTietDonHang/@item.IdDonHang">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="eye"></i>
+                                    </a>
+                                    <a href="/Administrator/tblDonHang/Edit/@item.IdDonHang">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="edit"></i>
+                                    </a>
+                                    <a href="/Administrator/tblDonHang/Delete/@item.IdDonHang" onclick="return confirm('Bạn có chắc chắn muốn xóa ?');">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="trash-2"></i>
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Administrator/Content/assets/js/feather-icons/feather.min.js"></script>
+<script src="~/Areas/Administrator/Content/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="~/Areas/Administrator/Content/assets/js/app.js"></script>
+
+<script src="~/Areas/Administrator/Content/assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script src="~/Areas/Administrator/Content/assets/js/vendors.js"></script>
+
+<script src="~/Areas/Administrator/Content/assets/js/main.js"></script>

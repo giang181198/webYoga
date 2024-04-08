@@ -1,0 +1,72 @@
+﻿@model List<WebYoga.Models.Cart>
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    if (Session["IdKhachHang"] == null)//nếu chưa đăng nhập
+    {
+        //Thì chuyển về login
+        Response.Redirect("/Home/Login");
+    }
+}
+<br />
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Giỏ hàng</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        @if (Model.Count > 0)
+        {
+            <table cellspacing="0" class="shop_table cart">
+                <thead>
+                    <tr>
+                        <td>Mã Sản phẩm</td>
+                        <td>Tên Sản phẩm</td>
+                        <td>Hình ảnh</td>
+                        <td>Số lượng </td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SanPham.IdSanPham</td>
+                            <td>@item.SanPham.TenSanPham</td>
+                            <td><img src="~/Content/UploadFiles/@item.SanPham.HinhAnh" style="width:3em; height:4em; " /></td>
+                            <td><input type="text" class="txtsoluong" data-id="@item.SanPham.IdSanPham" value="@item.SoLuong" /> </td>
+                            <td>@item.SanPham.GiaKhuyenMai.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.SanPham.GiaKhuyenMai.GetValueOrDefault(0) * item.SoLuong).ToString("N0"))</td>
+                            <td><button id="btn-delete" data-id="@item.SanPham.IdSanPham" class="btn btn-danger" href="#">Xóa</button></td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+            <button id="btnContinue" class="btn btn-info">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn btn-info">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn btn-info">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="btn btn-info">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger"> Chưa có sản phẩm trong giỏ hàng</span>
+        }
+    </div>
+</div>
+<script src="~/Content/jquery.3.2.1.min.js"></script>
+<script src="~/Controllers/CartController.js"></script>

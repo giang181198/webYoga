@@ -1,0 +1,87 @@
+﻿@using WebYoga.Model;
+@{
+    List<tblChiTietDonHang> chitietdh = ViewBag.ChiTietDonHang;
+
+}
+@model WebYoga.Model.tblDonHang
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center ">
+                <h4 class="card-title">Chi tiết đơn hàng:  </h4>
+
+            </div>
+
+
+        </div><div class="main-content container-fluid">
+            <div class="table-responsive" id="tb">
+                <table class="table table-bordered mb-0 table-striped">
+
+
+                    <thead class=" table table-secondary ">
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Người đặt hàng</th>
+                            <th>Tổng tiền</th>
+                            <th>Thời gian đặt hàng</th>
+                            <th>Trạng thái đơn hàng</th>
+
+
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td>@Model.IdDonHang</td>
+                            <td>@Model.tblKhachHang.TenKhachHang</td>
+                            <td>@Model.TongTien</td>
+                            <td>@Model.NgayDatHang</td>
+                            <td>@Model.TrangThaiDonHang</td>
+
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="main-content container-fluid">
+            <div class="table-responsive" id="tb">
+                <h4 class="card-title">Sản phẩm:  </h4>
+                <table class="table table-bordered mb-0 table-striped">
+
+                    <thead class=" table table-secondary ">
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+
+
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach (var item in chitietdh)
+                        {
+                            <tr>
+                                <td>@item.tblSanPham.TenSanPham</td>
+                                <td>@item.SoLuong</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

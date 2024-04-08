@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebYoga", "WebYoga\WebYoga.csproj", "{042802CA-21B9-4896-9E93-F2856AF944DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebYoga.IRepository", "WebYoga.IRepository\WebYoga.IRepository.csproj", "{F6CE58AD-EC7A-41B1-94B7-4D3FD2E50B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebYoga.Model", "WebYoga.Model\WebYoga.Model.csproj", "{BEB334D8-455C-4BCD-BBF1-414A2076FB97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebYoga.Repository", "WebYoga.Repository\WebYoga.Repository.csproj", "{7305C3CF-9578-42C5-8F57-3AA16EC012FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042802CA-21B9-4896-9E93-F2856AF944DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042802CA-21B9-4896-9E93-F2856AF944DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042802CA-21B9-4896-9E93-F2856AF944DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042802CA-21B9-4896-9E93-F2856AF944DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CE58AD-EC7A-41B1-94B7-4D3FD2E50B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CE58AD-EC7A-41B1-94B7-4D3FD2E50B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CE58AD-EC7A-41B1-94B7-4D3FD2E50B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CE58AD-EC7A-41B1-94B7-4D3FD2E50B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB334D8-455C-4BCD-BBF1-414A2076FB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB334D8-455C-4BCD-BBF1-414A2076FB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB334D8-455C-4BCD-BBF1-414A2076FB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB334D8-455C-4BCD-BBF1-414A2076FB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7305C3CF-9578-42C5-8F57-3AA16EC012FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7305C3CF-9578-42C5-8F57-3AA16EC012FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7305C3CF-9578-42C5-8F57-3AA16EC012FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7305C3CF-9578-42C5-8F57-3AA16EC012FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D082EAED-3428-44DC-97CD-0F7ECDF584C4}
+	EndGlobalSection
+EndGlobal

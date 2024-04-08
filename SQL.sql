@@ -1,0 +1,116 @@
+﻿CREATE DATABASE WebYoga
+GO
+USE WebYoga
+
+GO
+CREATE TABLE USERs
+(
+	UserId INT IDENTITY(1,1) PRIMARY KEY ,
+	UserName NVARCHAR(50) NOT NULL,
+	PassWords NVARCHAR(50) NOT NULL,
+	HoTen NVARCHAR(50),
+	DiaChi NVARCHAR(50),
+	SoDienThoai NVARCHAR(11),
+	Email NVARCHAR(50),
+	Avatar NVARCHAR(50)
+)
+CREATE TABLE tblTrangThai
+(
+	IdTrangThai INT IDENTITY(1,1) PRIMARY KEY ,
+	TenTrangThai NVARCHAR(50) NOT NULL,
+)
+CREATE TABLE tblNamSanXuat
+(
+	IdNamSanXuat INT IDENTITY(1,1) PRIMARY KEY ,
+	TenNamSanXuat NVARCHAR(50) NOT NULL
+)
+CREATE TABLE tblXuatXu
+(
+	IdXuatXu INT IDENTITY(1,1) PRIMARY KEY ,
+	TenXuatXu NVARCHAR(50) NOT NULL
+)
+CREATE TABLE tblMauSac
+(
+	IdMauSac INT IDENTITY(1,1) PRIMARY KEY ,
+	TenMauSac NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE tblChatLieu
+(
+	IdChatLieu INT IDENTITY(1,1) PRIMARY KEY ,
+	TenChatLieu NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE tblTheLoai
+(
+	IdTheLoai INT IDENTITY(1,1) PRIMARY KEY ,
+	TenTheLoai NVARCHAR(50) NOT NULL
+)
+CREATE TABLE tblHangSanXuat
+(
+	IdHangSanXuat INT IDENTITY(1,1) PRIMARY KEY ,
+	TenHangSanXuat NVARCHAR(50) NOT NULL
+)
+CREATE TABLE tblSanPham
+(
+	IdSanPham INT IDENTITY(1,1) PRIMARY KEY ,
+	TenSanPham NVARCHAR(50) NOT NULL,
+	IdHangSanXuat INT FOREIGN KEY REFERENCES tblHangSanXuat(IdHangSanXuat),
+	IdChatLieu INT FOREIGN KEY REFERENCES tblChatLieu(IdChatLieu),
+	IdTheLoai INT FOREIGN KEY REFERENCES tblTheLoai (IdTheLoai),
+	IdMauSac INT FOREIGN KEY REFERENCES tblMauSac(IdMauSac),
+	IdXuatXu INT FOREIGN KEY REFERENCES tblXuatXu(IdXuatXu),
+	IdNamSanXuat INT FOREIGN KEY REFERENCES tblNamSanXuat(IdNamSanXuat),
+	IdTrangThai INT FOREIGN KEY REFERENCES tblTrangThai(IdTrangThai),
+	SoLuong FLOAT,
+	GiaBan FLOAT,
+	GiaKhuyenMai FLOAT,
+	HinhAnh NVARCHAR(50),
+	MoTa NTEXT,
+	KichThuoc NVARCHAR(50),
+	TrongLuong NVARCHAR(50),
+	NgayThemSanPham DATE,
+	SoLuongBan FLOAT
+)
+CREATE TABLE tblKhachHang
+(
+	IdKhachHang INT IDENTITY(1,1) PRIMARY KEY ,
+	TenKhachHang NVARCHAR(30) NOT NULL,
+	DiaChi NVARCHAR(200),
+	Email VARCHAR(50),
+	DienThoai VARCHAR(11),
+	UserName VARCHAR(30),
+	PassWords NVARCHAR(30),
+	Avatar VARCHAR(100)
+)
+CREATE TABLE tblDonHang
+(
+	IdDonHang INT IDENTITY(1,1) PRIMARY KEY ,
+	IdKhachHang INT FOREIGN KEY REFERENCES tblKhachHang(IdKhachHang),
+	TongTien FLOAT,
+	Payment NVARCHAR(30),
+	NgayDatHang DATETIME,
+	Note NVARCHAR(200),
+	SoDienThoaiNhan INT,
+	TenNguoiNhan NVARCHAR(30),
+	DiaChiNhan NVARCHAR(30),
+	EmailNhan NVARCHAR(30),
+	TrangThaiDonHang NVARCHAR(30)
+)
+GO
+
+CREATE TABLE tblChiTietDonHang
+(
+	IdChiTietDonHang INT IDENTITY(1,1) PRIMARY KEY ,
+	IdDonHang INT FOREIGN KEY REFERENCES tblDonHang(IdDonHang),
+	IdSanPham INT FOREIGN KEY REFERENCES tblSanPham(IdSanPham),
+	SoLuong INT
+)
+
+CREATE TABLE tblTinTuc
+(
+	IdTinTuc INT IDENTITY(1,1) PRIMARY KEY ,
+	TieuDe NVARCHAR(100),
+	NoiDung NTEXT,
+	HinhAnh VARCHAR(100)
+)

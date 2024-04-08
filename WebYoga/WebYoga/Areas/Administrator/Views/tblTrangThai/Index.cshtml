@@ -1,0 +1,66 @@
+﻿@model List<WebYoga.Model.tblTrangThai>
+@{
+    ViewBag.Title = "Quản lý trạng thái";
+    ViewBag.header = " Danh mục trạng thái";
+}
+
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center ">
+                <h4 class="card-title">Trạng thái</h4>
+
+            </div>
+            <a class=" btn btn btn-secondary btn-round ml-auto" href="/Administrator/tblTrangThai/Create"> <span class="btn-label"><i class="fa fa-plus"></i></span>     Thêm mới  </a>
+
+        </div>
+        <div class="main-content container-fluid">
+            <div class="table-responsive">
+                <table id="multi-filter-select" class=" display table table-bordered table-head-bg-secondary  table-hover table-striped" cellspacing="0" width="100%">
+
+
+                    <thead class=" table table-secondary ">
+                        <tr>
+                            <th>ID</th>
+                            <th>Trạng thái</th>
+
+                            <th>Chức năng</th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>Id @item.IdTrangThai</td>
+                                <td>@item.TenTrangThai</td>
+
+
+                                <td style="width:150px;">
+
+                                    <a href="/Administrator/tblTrangThai/Edit/@item.IdTrangThai">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="edit"></i>
+                                    </a>
+                                    <a href="/Administrator/tblTrangThai/Delete/@item.IdTrangThai" onclick="return confirm('Bạn có chắc chắn muốn xóa ?');">
+                                        <i class="badge-circle badge-circle-light-secondary font-medium-1"
+                                           data-feather="trash-2"></i>
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
